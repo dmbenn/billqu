@@ -1,0 +1,2 @@
+class ShallowsController < ApplicationController
+end
