@@ -1,0 +1,98 @@
+@import "bootstrap";
+
+@import "font-awesome";
+
+
+p {
+    font-size: 20px;
+}
+
+p.small {
+    font-size: 16px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    outline: 0;
+    color: #18bc9c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
+#home-page {
+    text-align: center;
+    color: #fff;
+    background: #638F79;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    width: 100%;
+}
+
+#home-page img {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+#home-page .intro-text .name {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+#home-page .intro-text .skills {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+
+.navbar {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    background-color: #BABEC4;
+    margin-bottom: 0px;
+}
+
+.navbar a:focus {
+    outline: 0;
+}
+
+.navbar .navbar-nav {
+    letter-spacing: 1px;
+}
+
+.navbar .navbar-nav li a:focus {
+    outline: 0;
+}
+
+
+
+footer {
+    text-color: #777;
+    width:100%;
+    position: absolute;
+    background-color: #BABEC4;
+    height: 35px;
+    font-weight: 700px;
+}
+
+#footer-text {
+    padding: 5px;
+    text-align: center;
+}
+

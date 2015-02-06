@@ -1,14 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Billqu</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Billqu - Crowdsourced Medical Billng Questions</title>
+  
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
-<body>
 
-<%= yield %>
+<body id="page-top" class="index">
 
-</body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+           <div class="navbar-header page-scroll">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+            <a class="navbar-brand" href="#page-top">Billqu</a>
+            </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav nav navbar-nav navbar-right">
+                <% if current_user %>
+                  <li> <%= link_to "Home", list_path(current_user.list) %> </li>
+                <% else %>
+                  <li> <%= link_to "Home", root_path %></li>        
+                <% end %>
+                <% if current_user %>
+                  <li> <%= link_to current_user.email, edit_user_registration_path(current_user) %> </li>
+                  <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </li>
+                <% else %>
+                  <li> <%= link_to "Sign In", new_user_session_path %></li>
+                  <li> <%= link_to "Sign Up", new_user_registration_path %> </li>
+                 <% end %>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+  
+    <%= yield %>
+
+  
+   <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12" id="footer-text">
+              Copyright &copy; billqu, inc 2014
+            </div>
+         </div>
+      </div>
+    </nav>
+  </body>
 </html>
