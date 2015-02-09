@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+group :development do
+  gem 'sqlite3'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -23,15 +31,22 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+gem 'figaro', '1.0'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
 # Use Devise for User Authenticaition
 gem 'devise'
 
+#faker for seeding
+gem 'faker'
+
+#pry for debugging
+gem 'pry'
+
 #User bootstrap for styling
 gem 'bootstrap-sass'
-
 gem "font-awesome-rails"
 
 # Use ActiveModel has_secure_password
