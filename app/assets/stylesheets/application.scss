@@ -1,98 +1,90 @@
 @import "bootstrap";
-
 @import "font-awesome";
 
 
-p {
-    font-size: 20px;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
 }
 
-p.small {
-    font-size: 16px;
+.navbar-default {
+  background-color: #DBF0FF;
 }
 
-a,
-a:hover,
-a:focus,
-a:active,
-a.active {
-    outline: 0;
-    color: #18bc9c;
+.footer {
+  background-color: #DBF0FF;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-}
-
-#home-page {
-    text-align: center;
-    color: #fff;
-    background: #638F79;
-    padding-top: 100px;
-    padding-bottom: 50px;
-    width: 100%;
-}
-
-#home-page img {
-    display: block;
-    margin: 0 auto 20px;
-}
-
-#home-page .intro-text .name {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 4em;
-    font-weight: 700;
-}
-
-#home-page .intro-text .skills {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 2em;
-    font-weight: 700;
+h1 {
+  font-weight: 900;
+  font-size: 4em;
 }
 
 
-.navbar {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    background-color: #BABEC4;
-    margin-bottom: 0px;
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 30px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
 }
 
-.navbar a:focus {
-    outline: 0;
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-.navbar .navbar-nav {
-    letter-spacing: 1px;
+code {
+  font-size: 80%;
 }
 
-.navbar .navbar-nav li a:focus {
-    outline: 0;
+.billqu-form {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.billqu-form .form-signin-heading,
+.billqu-form .checkbox {
+  margin-bottom: 10px;
+}
+
+.billqu-form .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#signin h2,
+#signup h2 {
+  text-align: center;
+}
+
+#signin,
+#signup {
+  padding-top: 75px;
 }
 
 
-
-footer {
-    text-color: #777;
-    width:100%;
-    position: absolute;
-    background-color: #BABEC4;
-    height: 35px;
-    font-weight: 700px;
-}
-
-#footer-text {
-    padding: 5px;
-    text-align: center;
-}
 
