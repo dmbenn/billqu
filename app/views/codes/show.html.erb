@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="header">
+    <h2><%= @code.title %></h2>
+  </div>
+</div>
+<div class="container">
+  <p> 
+    <%= @code.body %>
+  </p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <%= link_to "Edit Code", edit_code_path, class: 'btn btn-default' %>
+    </div>
+    <div class="col-md-2">
+      <%= link_to "Delete Code", @code, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delte this Code?'} %>
+    </div>
+  </div>
+</div>
