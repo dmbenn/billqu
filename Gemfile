@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
@@ -8,6 +10,8 @@ end
 group :development do
   gem 'sqlite3'
 end
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -47,6 +51,9 @@ gem 'pry'
 #User bootstrap for styling
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
+
+#Punit for authorization
+gem 'pundit'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -5,15 +5,17 @@ class CodesController < ApplicationController
 
   def show
     @code = Code.find(params[:id])
+    authorize @code
   end
 
   def new
     @code = Code.new
+    authorize @code
   end
   
   def create
     @code = Code.new(code_params)
-    # I know this is coming later authorize @code
+    authorize @code
     if @code.save
       redirect_to @code, notice: "Code was added succesfully"
     else
@@ -24,11 +26,12 @@ class CodesController < ApplicationController
 
   def edit
     @code = Code.find(params[:id])
+    authorize @code
   end
   
   def update
     @code = Code.find(params[:id])
-    # authorize @code
+    authorize @code
     if @code.update_attributes(code_params)
       redirect_to @code
     else
@@ -41,7 +44,7 @@ class CodesController < ApplicationController
     @code = Code.find(params[:id])
     title = @code.title
 
-    # Will need this later authorize @code
+    authorize @code
     if @code.destroy
       redirect_to codes_path, notice: "\"#{title}\" was deleted successfully"
     else

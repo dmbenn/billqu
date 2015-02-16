@@ -58,6 +58,25 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
+    <div class="container alrts">
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:error] %>
+       <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:error] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    </div>
 
     <!-- Begin page content -->
     <%= yield %>
@@ -73,9 +92,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
   </body>
 </html>
