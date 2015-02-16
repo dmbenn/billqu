@@ -1,17 +1,42 @@
 require 'faker'
 
-#Adding Test Users
+#Adding Standard Test Users
 5.times do 
   user = User.new(
     email:  Faker::Internet.email,
-    password: Faker::Lorem.characters(10)
+    password: Faker::Lorem.characters(10),
+    role: 'standard'
     )
   user.skip_confirmation!
   user.save!
 end
 
-users = User.all
+#Adding Standard Test Users
+5.times do 
+  user = User.new(
+    email:  Faker::Internet.email,
+    password: Faker::Lorem.characters(10),
+    role: 'premium'
+    )
+  user.skip_confirmation!
+  user.save!
+end
 
+#Test standard User
+admin = User.new(
+  email:      'standard@example.com',
+  password:   'testtest',
+)
+admin.skip_confirmation!
+admin.save!
+
+#Test premium User
+admin = User.new(
+  email:      'premium@example.com',
+  password:   'testtest',
+)
+admin.skip_confirmation!
+admin.save!
 
 #Test Admin User
 admin = User.new(
@@ -21,7 +46,19 @@ admin = User.new(
 admin.skip_confirmation!
 admin.save!
 
+users = User.all
 
-puts "#{User.first.email} 1st email"
+#fake codes
+30.times do
+  Code.create(
+    title:  Faker::Lorem.characters(10),
+    body:   Faker::Lorem.paragraph(3),
+    user:   users.sample,
+  )
+end
+
+
+
+
 puts "Seed Finished"
 puts "#{User.count} users created"

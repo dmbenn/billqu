@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
  
   def standard?
-    role == 'moderator'
+    role == 'standard'
   end
   
   def premium?
