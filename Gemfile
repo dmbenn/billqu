@@ -55,6 +55,9 @@ gem "font-awesome-rails"
 #Punit for authorization
 gem 'pundit'
 
+# stripe for payment
+gem 'stripe'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

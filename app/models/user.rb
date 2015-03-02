@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
   
   has_many :codes
   
+  def upgrade
+    self.update_attribute(:role, "premium")
+  end
+  
+  def downgrade
+    self.update_attribute(:role, "standard")
+  end
+  
   
   def admin?
     role == 'admin'

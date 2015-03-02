@@ -26,6 +26,7 @@ end
 admin = User.new(
   email:      'standard@example.com',
   password:   'testtest',
+  role: 'standard'
 )
 admin.skip_confirmation!
 admin.save!
@@ -34,6 +35,7 @@ admin.save!
 admin = User.new(
   email:      'premium@example.com',
   password:   'testtest',
+  role: 'premium'
 )
 admin.skip_confirmation!
 admin.save!
@@ -42,6 +44,7 @@ admin.save!
 admin = User.new(
   email:      'admin@example.com',
   password:   'testtest',
+  role: 'admin'
 )
 admin.skip_confirmation!
 admin.save!
