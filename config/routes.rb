@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :codes
 
   devise_for :users
+  
+  resources :users, only: [:update]
+   
 
   resources :charges, only: [:new, :create]
 

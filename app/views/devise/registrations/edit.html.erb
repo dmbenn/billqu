@@ -43,7 +43,7 @@
 <% elsif current_user.premium? %>
   <div class="container">
     <div class="row text-center">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), method: :patch ) do |f| %>
+      <%= form_for(resource, as: resource_name, url: user_path(@user) , method: :patch ) do |f| %>
       <%= f.hidden_field :role, value: 'standard' %>
       <%= f.submit 'Downgrade your account', class:"btn btn-danger" %>
     <% end %>
