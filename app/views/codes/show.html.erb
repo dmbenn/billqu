@@ -1,11 +1,11 @@
 <div class="container">
   <div class="header">
-    <h2><%= @code.title %></h2>
+    <h2><%= markdown_to_html @code.title %></h2>
   </div>
 </div>
 <div class="container">
   <p> 
-    <%= @code.body %>
+    <%= markdown_to_html @code.body %>
   </p>
 </div>
 <div class="container">

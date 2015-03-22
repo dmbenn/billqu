@@ -7,11 +7,11 @@
   <%= form_for @code do |f| %>
       <div class="form-group">
         <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control', placeholder: @code.title %>
+        <%= f.text_field :title, class: 'form-control', placeholder: markdown_to_html(@code.title) %>
       </div>
       <div class="form-group">
         <%= f.label :body %>
-        <%= f.text_area :body, rows: 25, class: 'form-control', placeholder: @code.body %>
+        <%= f.text_area :body, rows: 25, class: 'form-control', placeholder: markdown_to_html(@code.body) %>
       </div>
       <div class="form-group">
         <% if current_user.standard? %>
