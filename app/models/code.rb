@@ -1,9 +1,11 @@
 class Code < ActiveRecord::Base
-  belongs_to :user
+  
+  belongs_to :user, dependent: :destroy
   
   def private?
-    private == 1
+    private == true
   end
-  
-  
+
+  scope :visable_to, -> (user) { user ? where("private = ? OR user_id = ?", false, user.id) : where(private: false) }
+
 end

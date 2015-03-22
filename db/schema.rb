@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215131949) do
+ActiveRecord::Schema.define(version: 20150322160857) do
 
   create_table "codes", force: true do |t|
     t.text     "body"
-    t.boolean  "private"
+    t.boolean  "private",    default: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

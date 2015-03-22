@@ -17,13 +17,8 @@
       <% if current_user.standard? %>
         <%= link_to "Upgrade to Premium!", edit_user_registration_path, class: 'btn btn-lg btn-info' %>
       <% else %>
-        <div class="row">
-          <div class="col-md-4 offset-2"
-          <%= f.label :private, class: 'checkbox' do %>
-            <%= f.check_box("post", "private") %>  Private Code
-          <% end %>
-          </div>
-        </div>
+        <%= f.label :private %>
+        <%= f.check_box :private %>
       <% end %>
     </div>
     <div class="form-group">

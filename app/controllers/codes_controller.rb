@@ -1,6 +1,6 @@
 class CodesController < ApplicationController
   def index
-    @codes = Code.all
+    @codes = Code.visable_to(current_user)
   end
 
   def show
@@ -15,6 +15,7 @@ class CodesController < ApplicationController
   
   def create
     @code = Code.new(code_params)
+    @code.user = current_user
     authorize @code
     if @code.save
       redirect_to @code, notice: "Code was added succesfully"
@@ -56,7 +57,7 @@ class CodesController < ApplicationController
   private
   
   def code_params
-    params.require(:code).permit(:title, :body, :private)
+    params.require(:code).permit(:title, :body, :private, :user_id)
   end
   
 end
