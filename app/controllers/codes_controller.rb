@@ -22,7 +22,9 @@ class CodesController < ApplicationController
     @user = current_user
     authorize @code
     if @code.save
-      @code.users << @user
+      if @user.admin? || @user.premium?
+        @code.users << @user
+      end
       redirect_to @code, notice: "Code was added succesfully"
     else
       flash[:error] = "Error creating Code"
