@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <%= f.label :body %>
-        <%= f.text_area :body, rows: 25, class: 'form-control', placeholder: markdown_to_html(@code.body) %>
+        <%= f.text_area :body, rows: 20, class: 'form-control', placeholder: markdown_to_html(@code.body) %>
       </div>
       <div class="form-group">
         <% if current_user.standard? %>
@@ -31,3 +31,27 @@
       </div>
     <% end %>
 </div>
+
+<% if @code.users.include?(current_user) || current_user.admin? %>
+  <div class="container">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#editors" aria-expanded="false" aria-controls="editors">
+      Change Collaborators
+    </button>
+    <div class="collapse" id="editors">
+      <div class="well">
+        <table class="table table-bordered">
+          <th>User Email</th>
+          <th>Remove User</th>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= link_to "Remove User", remove_editor_code_path(@code, user), method: :delete %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+      <%= render "new_editor" %>
+    </div>
+</div>
+<% end %>
+

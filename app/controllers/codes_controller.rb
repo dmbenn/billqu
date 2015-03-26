@@ -1,6 +1,10 @@
 class CodesController < ApplicationController
   def index
-    @codes = Code.visable_to(current_user)
+    if current_user
+      @codes = policy_scope(Code)
+    else
+      @codes = Code.where(private: false)
+    end
   end
 
   def show
@@ -15,9 +19,10 @@ class CodesController < ApplicationController
   
   def create
     @code = Code.new(code_params)
-    @code.user = current_user
+    @user = current_user
     authorize @code
     if @code.save
+      @code.users << @user
       redirect_to @code, notice: "Code was added succesfully"
     else
       flash[:error] = "Error creating Code"
@@ -28,6 +33,7 @@ class CodesController < ApplicationController
   def edit
     @code = Code.find(params[:id])
     authorize @code
+    @users = @code.users
   end
   
   def update
@@ -51,6 +57,27 @@ class CodesController < ApplicationController
     else
       flash[:error] = "Could not delete Code"
       render :show
+    end
+  end
+  
+  def remove_editor
+    @code = Code.find(params[:id])
+    @user = User.find(params[:format])
+    @code.users.delete(@user)
+    redirect_to edit_code_path(@code)
+  end
+  
+  def add_editor
+    @code = Code.find(params[:id])
+    @user = User.where(email: params[:email])
+    
+    if @user.empty?
+      redirect_to edit_code_path(@code), alert: "User Not Found"
+    elsif @code.users.include?(@user)
+      redirect_to edit_code_path(@code), alert: "Editor already added"
+    else
+      @code.users << @user
+      redirect_to edit_code_path(@code), notice: "Editor added succesfully"
     end
   end
   

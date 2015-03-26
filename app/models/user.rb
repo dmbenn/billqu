@@ -2,12 +2,12 @@ class User < ActiveRecord::Base
   
   after_initialize :init
   
+  has_and_belongs_to_many :codes, join_table: "editors"
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  
-  has_many :codes
   
   def upgrade
     self.update_attribute(:role, "premium")

@@ -52,15 +52,21 @@ admin.save!
 users = User.all
 
 #fake codes
-30.times do
+15.times do
   Code.create(
     title:  Faker::Lorem.characters(10),
     body:   Faker::Lorem.paragraph(3),
-    user:   users.sample,
   )
 end
 
+codes = Code.all
 
+40.times do
+  Editor.create(
+    code: codes.sample,
+    user: users.sample
+    )
+end
 
 
 puts "Seed Finished"

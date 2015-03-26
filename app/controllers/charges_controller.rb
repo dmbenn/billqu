@@ -18,8 +18,7 @@ def create
    )
    
    current_user.upgrade
-   flash[:success] = "Thanks for all the money Feel free to pay me again."
-   redirect_to root_path # or wherever
+   redirect_to root_path, success: "Thanks for all the money Feel free to pay me again."
   
     
  # Stripe will send back CardErrors, with friendly messages

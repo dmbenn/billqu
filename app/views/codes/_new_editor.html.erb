@@ -1,0 +1,5 @@
+<%= form_tag(add_editor_code_path, method: "post") do %>
+<%= label_tag(:email, "Enter Email") %>
+<%= text_field_tag(:email) %>
+<%= submit_tag("Add Editor") %>
+<% end %>
